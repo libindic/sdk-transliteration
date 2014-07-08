@@ -1,18 +1,12 @@
 package org.silpa.transliteration;
 
 import android.content.Context;
-import android.util.Log;
+import android.database.sqlite.SQLiteDatabase;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 /**
  * Created by sujith on 5/7/14.
@@ -20,62 +14,50 @@ import java.util.Map;
 public class CMUDict {
 
     /**
-     * Context
+     * Context of application
      */
     private Context mContext;
 
     /**
-     * local cmu dictionary
+     * CMU Database
      */
-    private Map<String, List<String>> cmudictionary;
+    private SQLiteDatabase cmuDB;
 
     // Log tag
     private static final String LOG_TAG = "CMUDict";
 
     /**
      * Constructor
+     *
      * @param context context
      */
     public CMUDict(Context context) {
         this.mContext = context;
-        load();
+        loadDB();
     }
 
     /**
-     * Load values into map
+     * Load database
      */
-    public void load() {
-        this.cmudictionary = new HashMap<>();
-        BufferedReader br;
-        try {
-            br = new BufferedReader(new InputStreamReader(this.mContext.getResources().
-                    openRawResource(R.raw.silpa_sdk_cmudict_0_7a_sphinx_40)));
-
-            String line = br.readLine();
-            while (line != null) {
-                line = line.trim();
-                List<String> lst = new LinkedList<String>(Arrays.asList(line.split("[ \t]")));
-                String lhs = lst.get(0);
-                lst.remove(0);
-                this.cmudictionary.put(lhs, lst);
-                line = br.readLine();
-            }
-            br.close();
-        } catch (IOException ioe) {
-            Log.e(LOG_TAG, "Error : " + ioe.getMessage());
-        }
+    private void loadDB() {
+        CMUDictSQLiteHelper.copyDatabase(this.mContext);
+        this.cmuDB = CMUDictSQLiteHelper.getCMUDatabase(this.mContext);
     }
 
     public List<String> find(String word) {
-        if (this.cmudictionary == null) {
-            load();
+        if (this.cmuDB != null) {
+            String phonemes = CMUDictSQLiteHelper.getCMUDictionaryEntry(this.cmuDB,
+                    (word.toUpperCase(Locale.getDefault())))
+                    .getPhonemes();
+            return Arrays.asList(phonemes.split("[ \t]"));
         }
-        return this.cmudictionary.get(word.toUpperCase(Locale.getDefault()));
+        return null;
     }
 
     /**
      * Function to get pronunciation string
-     * @param word word
+     *
+     * @param word     word
      * @param language language of word
      * @return string
      */
@@ -123,8 +105,8 @@ public class CMUDict {
                     // no key found
                     pronunciationStr = pronunciationStr + symbol;
                 }
+                pronunciationStr = fixVowelSignsHi(pronunciationStr);
             }
-            pronunciationStr = fixVowelSignsHi(pronunciationStr);
         }
         try {
             return (new String((pronunciationStr.getBytes("UTF-8")), "UTF-8")) + punctuations;
@@ -135,6 +117,7 @@ public class CMUDict {
 
     /**
      * Fix vowel signs Malayalam
+     *
      * @param text text
      * @return string
      */
@@ -172,6 +155,7 @@ public class CMUDict {
 
     /**
      * Fix vowel signs Kannada
+     *
      * @param text text
      * @return string
      */
@@ -194,6 +178,7 @@ public class CMUDict {
 
     /**
      * Fix vowel signs Hindi
+     *
      * @param text text
      * @return string
      */

@@ -10,6 +10,8 @@ import java.util.Map;
  */
 public class IndicUtils {
 
+    public static final String PUNCTUATIONS = "[!\"#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~\\\\]";
+
     public static Map<String, String> kannadaEnglishDict = new HashMap<>();
 
     static {
@@ -306,10 +308,11 @@ public class IndicUtils {
      * Returns the 'language' english-dict. If there
      * is no dictionary available for a language then
      * return ml_IN dictionary
+     *
      * @param lang Language for which dictionary is required
      * @return language map
      */
-    public Map<String, String> getDictionaryForLanguage(String lang) {
+    public static Map<String, String> getDictionaryForLanguage(String lang) {
         if (languageDictionary.get(lang) != null) {
             return languageDictionary.get(lang);
         } else {
@@ -321,10 +324,11 @@ public class IndicUtils {
      * Returns the 'lang' vowels list. If vowel list
      * is not available for a language return list for
      * ml_IN
+     *
      * @param lang Language for which vowel list should be returned
      * @return list of vowels
      */
-    public List<Character> getVowelsForLanguage(String lang) {
+    public static List<Character> getVowelsForLanguage(String lang) {
         if (languageVowels.get(lang) != null) {
             return languageVowels.get(lang);
         } else {
@@ -336,10 +340,11 @@ public class IndicUtils {
      * Returns the 'lang' vowel signs list. If vowel signs list
      * is not available for a language return list for
      * ml_IN
+     *
      * @param lang Language for which vowel signs list should be returned
      * @return list of vowel signs
      */
-    public List<Character> getVowelSignsForLanguage(String lang) {
+    public static List<Character> getVowelSignsForLanguage(String lang) {
         if (languageVowelSigns.get(lang) != null) {
             return languageVowelSigns.get(lang);
         } else {
@@ -349,10 +354,11 @@ public class IndicUtils {
 
     /**
      * Return the virama symbol for given language
+     *
      * @param lang Language for which virama symbol should be returned
      * @return character
      */
-    public char getViramaForLanguage(String lang) {
+    public static char getViramaForLanguage(String lang) {
         if (languageVirama.get(lang) != null) {
             return languageVirama.get(lang);
         } else {
@@ -362,10 +368,11 @@ public class IndicUtils {
 
     /**
      * Return the anuswara symbol for the language
+     *
      * @param lang Language for which anuswara symbol is needed
      * @return character
      */
-    public char getAnuswaraForLanguage(String lang) {
+    public static char getAnuswaraForLanguage(String lang) {
         if (languageAnuswara.get(lang) != null) {
             return languageAnuswara.get(lang);
         } else {
