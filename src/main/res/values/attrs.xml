@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Attributes for TransliteratorEditText -->
+    <declare-styleable name="TransliteratorEditText">
+        <attr name="transliteratedTextOutputTo" format="reference" />
+        <attr name="targetLanguage" format="enum">
+            <enum name="english_US" value="0" />
+            <enum name="english_IN" value="1" />
+            <enum name="hindi" value="2" />
+            <enum name="bengali" value="3" />
+            <enum name="punjabi" value="4" />
+            <enum name="gujarati" value="5" />
+            <enum name="oriya" value="6" />
+            <enum name="tamil" value="7" />
+            <enum name="telugu" value="8" />
+            <enum name="kannada" value="9" />
+            <enum name="malayalam" value="10" />
+        </attr>
+    </declare-styleable>
+
+</resources>
