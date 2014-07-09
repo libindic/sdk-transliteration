@@ -425,10 +425,6 @@ public class Transliterator {
                                     targetLanguage) + " ";
                             break;
                     }
-
-//                    if (line.length() > 1) {
-//                        txStr = txStr + " ";
-//                    }
                 } else {
                     txStr = txStr + word;
                 }
@@ -441,7 +437,7 @@ public class Transliterator {
         if (targetLanguage.equals("ml_IN")) {
             txStr = malayalamFixes(txStr);
         }
-        
+
         return txStr.trim();
     }
 
@@ -455,5 +451,27 @@ public class Transliterator {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public static final String MODULE_NAME = "Transliterator";
+    public static final String MODULE_INFORMATION = "Transliterate the text between " +
+            "any Indian Language";
+
+    /**
+     * This function returns module name
+     *
+     * @return string module name
+     */
+    public String getModuleName() {
+        return Transliterator.MODULE_NAME;
+    }
+
+    /**
+     * This function returns brief information of module
+     *
+     * @return string module information
+     */
+    public String getModuleInformation() {
+        return Transliterator.MODULE_INFORMATION;
     }
 }

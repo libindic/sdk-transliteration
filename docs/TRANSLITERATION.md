@@ -21,6 +21,12 @@ The code demonstrates on how to create a Transliterator object.
 The above function accepts text in any language and transliterates to a given language.
 
 
+#### Get module name and information
+```
+        String moduleName = obj.getModuleName();
+        String moduleInforamtion =  obj.getModuleInformation();
+```
+
 #### To run tests
 
   Tests present at `/src/test/java/`

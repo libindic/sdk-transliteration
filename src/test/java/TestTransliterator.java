@@ -28,6 +28,24 @@ public class TestTransliterator extends AndroidTestCase {
 
     }
 
+    @SmallTest
+    @MediumTest
+    @LargeTest
+    public void testGetModuleName() {
+        Transliterator obj = new Transliterator(getContext());
+        assertNotNull(obj);
+        assertEquals(Transliterator.MODULE_NAME, obj.getModuleName());
+    }
+
+    @SmallTest
+    @MediumTest
+    @LargeTest
+    public void testGetModuleInformation() {
+        Transliterator obj = new Transliterator(getContext());
+        assertNotNull(obj);
+        assertEquals(Transliterator.MODULE_INFORMATION, obj.getModuleInformation());
+    }
+
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
