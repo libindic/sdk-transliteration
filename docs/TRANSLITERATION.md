@@ -27,6 +27,43 @@ The above function accepts text in any language and transliterates to a given la
         String moduleInforamtion =  obj.getModuleInformation();
 ```
 
+#### TransliteratorEditText
+
+```
+
+        <org.silpa.transliteration.TransliteratorEditText
+                android:id="@+id/edtTransliterator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                transliterator:targetLanguage="english_US"
+                transliterator:transliteratedTextOutputTo="@+id/edtId" />
+
+```
+
+Here  `transliterator:targetLanguage="english_US"` is used to set target language for transliteration, default being english_US.
+and `transliterator:transliteratedTextOutputTo="@+id/edtId"` would output transliterated output of the edit text automatically to another Edittext or TextView specified by 'fieldId'
+If id is same as that of current edit text then it would replace contents of current edit text too.
+
+Transliterated text can also be obtained by :
+
+```
+    String transliterator = edtTransliterator.getTransliteratedText();
+```
+
+#### TransliteratorTextView
+
+```
+
+        <org.silpa.transliteration.TransliteratorTextView
+                android:id="@+id/tvTransliterator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                transliterator:targetLanguage="english_US" />
+
+```
+
+Same functions available except for outputting to another field.
+
 #### To run tests
 
   Tests present at `/src/test/java/`
