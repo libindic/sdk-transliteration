@@ -1,6 +1,8 @@
 Transliterator
 ==============
 
+[![Build Status](https://travis-ci.org/SujithVadakkepat/sdk-transliteration.svg?branch=master)](https://travis-ci.org/SujithVadakkepat/sdk-transliteration)
+
 SILPA - Transliteration module provides way to transliterate from English to any Indian Language or from any Indian Language other Indian Language. 
 
 
