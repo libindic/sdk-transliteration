@@ -7,7 +7,7 @@ buildscript {
     }
 }
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 19
@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "org.silpa.transliteration"
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 'L'
         versionCode 1
         versionName "1.0"
     }
