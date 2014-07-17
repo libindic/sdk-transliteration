@@ -16,7 +16,8 @@ android {
     defaultConfig {
         applicationId "org.silpa.transliteration"
         minSdkVersion 8
-        targetSdkVersion 'L'
+        //noinspection OldTargetApi
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }

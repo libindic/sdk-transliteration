@@ -1,7 +1,6 @@
 package org.silpa.transliteration;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -19,9 +18,9 @@ public class CMUDict {
     private Context mContext;
 
     /**
-     * CMU Database
+     * CMU Database Reference
      */
-    private SQLiteDatabase cmuDB;
+    private CMUDictSQLiteUtil cmusqlu;
 
     // Log tag
     private static final String LOG_TAG = "CMUDict";
@@ -40,14 +39,12 @@ public class CMUDict {
      * Load database
      */
     private void loadDB() {
-        CMUDictSQLiteHelper.copyDatabase(this.mContext);
-        this.cmuDB = CMUDictSQLiteHelper.getCMUDatabase(this.mContext);
+        this.cmusqlu = new CMUDictSQLiteUtil(this.mContext);
     }
 
     public List<String> find(String word) {
-        if (this.cmuDB != null) {
-            String phonemes = CMUDictSQLiteHelper.getCMUDictionaryEntry(this.cmuDB,
-                    (word.toUpperCase(Locale.getDefault())))
+        if (this.cmusqlu != null) {
+            String phonemes = cmusqlu.getCMUDictionaryEntry((word.toUpperCase(Locale.getDefault())))
                     .getPhonemes();
             return Arrays.asList(phonemes.split("[ \t]"));
         }
