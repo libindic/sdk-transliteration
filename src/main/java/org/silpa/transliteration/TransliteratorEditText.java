@@ -141,19 +141,16 @@ public class TransliteratorEditText extends IndicEditText implements Translitera
 
                     if (mOutputResourceId == getId()) {
                         removeTextChangedListener(this);
-                    }
-
-                    if (mOutputView instanceof EditText) {
-                        ((EditText) mOutputView).setText(mTransliteratedText);
-                    } else if (mOutputView instanceof TextView) {
-                        ((TextView) mOutputView).setText(mTransliteratedText);
-                    }
-
-                    if (mOutputResourceId == getId()) {
+                        setText(mTransliteratedText);
+                        setSelection(getText().length());
                         addTextChangedListener(this);
+                    } else {
+                        if (mOutputView instanceof EditText) {
+                            ((EditText) mOutputView).setText(mTransliteratedText);
+                        } else if (mOutputView instanceof TextView) {
+                            ((TextView) mOutputView).setText(mTransliteratedText);
+                        }
                     }
-
-                    setSelection(getText().length());
                 }
 
             }
@@ -167,6 +164,24 @@ public class TransliteratorEditText extends IndicEditText implements Translitera
      */
     public void setOutputField(int resourceId) {
         this.mOutputResourceId = resourceId;
+    }
+
+    /**
+     * This function is used to set target langauge
+     *
+     * @param targetLangauge language code
+     */
+    @Override
+    public void setTargetLanguage(String targetLangauge) {
+        this.targetLanguage = targetLangauge;
+    }
+
+    /**
+     * This function is used to get target langauge
+     */
+    @Override
+    public String getTargetLanguage() {
+        return this.targetLanguage;
     }
 
     /**

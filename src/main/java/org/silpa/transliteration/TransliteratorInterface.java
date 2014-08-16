@@ -6,6 +6,18 @@ package org.silpa.transliteration;
 public interface TransliteratorInterface {
 
     /**
+     * This function is used to set target langauge
+     *
+     * @param targetLangauge language code
+     */
+    public void setTargetLanguage(String targetLangauge);
+
+    /**
+     * This function is used to get target langauge
+     */
+    public String getTargetLanguage();
+
+    /**
      * This function returns transliterated text of contents of view
      *
      * @return string transliterated text
