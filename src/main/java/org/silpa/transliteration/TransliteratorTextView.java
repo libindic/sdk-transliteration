@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
+
+import org.silpa.render.IndicTextView;
 
 /**
  * Created by sujith on 10/7/14.
  */
-public class TransliteratorTextView extends TextView implements TransliteratorInterface {
+public class TransliteratorTextView extends IndicTextView implements TransliteratorInterface {
     /**
      * Transliterator object
      */
