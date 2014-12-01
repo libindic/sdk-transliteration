@@ -2,6 +2,7 @@ package org.silpa.transliteration;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.text.SpannableString;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -68,6 +69,7 @@ public class TransliteratorTextView extends IndicTextView implements Translitera
         );
 
         try {
+            System.out.println("HERE");
             targetLanguage = langaugeMap[a.getInteger(R.styleable.TransliteratorTextView_targetLanguage, 0)];
         } catch (Exception e) {
             targetLanguage = langaugeMap[0];
@@ -75,6 +77,22 @@ public class TransliteratorTextView extends IndicTextView implements Translitera
         } finally {
             a.recycle();
         }
+    }
+
+    @Override
+    public void setText(CharSequence charSequence, BufferType type) {
+
+        SpannableString content = new SpannableString(charSequence);
+        String text = charSequence.toString();
+
+        if (text != null && text.length() != 0) {
+            if (this.targetLanguage == null) {
+                init(null, 0);
+            }
+            String transliteratedText = this.transliterator.transliterate(text, this.targetLanguage);
+            content = new SpannableString(transliteratedText);
+        }
+        super.setText(content, BufferType.SPANNABLE);
     }
 
     /**

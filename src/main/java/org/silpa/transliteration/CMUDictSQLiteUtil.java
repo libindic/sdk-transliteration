@@ -110,7 +110,8 @@ public class CMUDictSQLiteUtil {
      */
     protected CMUDictObject getCMUDictionaryEntry(String word) {
 
-        SQLiteDatabase transliteratorDatabase = SQLiteDatabase.openDatabase(this.dbPath, null, SQLiteDatabase.OPEN_READONLY);
+        SQLiteDatabase transliteratorDatabase = SQLiteDatabase.openDatabase(this.dbPath, null,
+                SQLiteDatabase.NO_LOCALIZED_COLLATORS | SQLiteDatabase.OPEN_READONLY);
         if (transliteratorDatabase == null) {
             return null;
         }
