@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,7 +6,7 @@ import android.text.SpannableString;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import org.silpa.render.IndicTextView;
+import org.libindic.render.IndicTextView;
 
 /**
  * Created by sujith on 10/7/14.

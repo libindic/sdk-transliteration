@@ -1,21 +1,21 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 import android.content.Context;
 
-import org.silpa.sdk.common.CharacterMap;
-import org.silpa.sdk.common.LanguageDetect;
+import org.libindic.common.CharacterMap;
+import org.libindic.common.LanguageDetect;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.silpa.transliteration.IndicUtils.PUNCTUATIONS;
-import static org.silpa.transliteration.IndicUtils.getAnuswaraForLanguage;
-import static org.silpa.transliteration.IndicUtils.getViramaForLanguage;
-import static org.silpa.transliteration.IndicUtils.getVowelSignsForLanguage;
-import static org.silpa.transliteration.IndicUtils.getVowelsForLanguage;
-import static org.silpa.transliteration.IndicUtils.languageDictionary;
+import static org.libindic.transliteration.IndicUtils.PUNCTUATIONS;
+import static org.libindic.transliteration.IndicUtils.getAnuswaraForLanguage;
+import static org.libindic.transliteration.IndicUtils.getViramaForLanguage;
+import static org.libindic.transliteration.IndicUtils.getVowelSignsForLanguage;
+import static org.libindic.transliteration.IndicUtils.getVowelsForLanguage;
+import static org.libindic.transliteration.IndicUtils.languageDictionary;
 
 /**
  * Created by sujith on 6/7/14.

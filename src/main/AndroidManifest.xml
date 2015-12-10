@@ -1,9 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.silpa.transliteration">
-
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="19" />
+    package="org.libindic.transliteration">
 
     <application
         android:allowBackup="true"

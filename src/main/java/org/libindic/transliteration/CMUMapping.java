@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.silpa.render.IndicEditText;
+import org.libindic.render.IndicEditText;
 
 /**
  * Created by sujith on 9/7/14.

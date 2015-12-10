@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 import android.content.Context;
 

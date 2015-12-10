@@ -3,7 +3,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.test.suitebuilder.annotation.MediumTest;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import org.silpa.transliteration.Transliterator;
+import org.libindic.transliteration.Transliterator;
 
 /**
  * Created by sujith on 7/7/14.

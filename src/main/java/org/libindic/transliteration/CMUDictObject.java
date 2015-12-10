@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 /**
  * Created by sujith on 8/7/14.

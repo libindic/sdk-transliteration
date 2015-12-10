@@ -1,4 +1,4 @@
-package org.silpa.transliteration;
+package org.libindic.transliteration;
 
 /**
  * Note : CMU Dictionary SQLite database for transliteration module is made using
